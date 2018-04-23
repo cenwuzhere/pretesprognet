@@ -58,7 +58,8 @@ class MusicController extends Controller
      */
     public function edit(music $music)
     {
-        //
+        $musics = music::find($music->id);
+        return view('music.edit',compact('musics'));
     }
 
     /**
@@ -70,7 +71,15 @@ class MusicController extends Controller
      */
     public function update(Request $request, music $music)
     {
-        //
+        $data = [
+            'title' => $request->title,
+            'genre' => $request->genre,
+            'singer' => $request->singer,
+            'song_writer' => $request->song_writer,
+            'updated_at' => date("Y-m-d H:i:s")
+        ];
+        music::where('id', $music->id)->update($data);
+        return redirect('music');
     }
 
     /**
