@@ -23,7 +23,7 @@
             <td>{{$music->genre}}</td>
             <td>{{$music->song_writer}}</td>
             <td>
-                <a href="#" class="btn btn-success">
+                <a href="{{URL('music/'.$music->id.'/edit')}}" class="btn btn-success">
                     <i class="fa fa-pencil"></i>
                 </a>
                 <a href="#" class="btn btn-danger">
